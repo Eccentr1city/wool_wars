@@ -10,7 +10,8 @@ A competitive multiplayer Minecraft datapack where teams compete to control a sp
 - **Score Tracking**: Persistent score tracking for each team
 - **Customizable Location**: Change the wool check location with commands
 - **Team System**: Join teams and get automatic wool replenishment
-- **Visual & Audio Feedback**: Color-coded messages and sound effects
+- **Visual & Audio Feedback**: Color-coded messages with different sounds (chime for placing, bass for destroying)
+- **Admin Commands**: Admins can manage other players' teams and view team rosters
 
 ## Installation
 
@@ -45,11 +46,16 @@ A competitive multiplayer Minecraft datapack where teams compete to control a sp
 - `/function wool_wars:teams/join_[color]` - Join a specific color team (e.g., join_red)
 - `/function wool_wars:teams/leave` - Leave your current team
 
+### Admin Commands:
+- `/function wool_wars:admin/set_player_team {player:"PlayerName", team:"color"}` - Set a player's team
+- `/function wool_wars:admin/list_teams` - Show all players and their teams
+
 ### Examples:
 ```
 /function wool_wars:util/set_timer {minutes:5}
 /function wool_wars:util/set_location {x:10, y:65, z:-20}
 /function wool_wars:teams/join_blue
+/function wool_wars:admin/set_player_team {player:"Steve", team:"red"}
 ```
 
 ## Game Rules
