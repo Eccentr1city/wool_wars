@@ -37,10 +37,7 @@ A competitive multiplayer Minecraft datapack where teams compete to control a sp
 - `/function wool_wars:util/set_timer {minutes:X}` - Set timer interval (e.g., {minutes:5} for 5 minutes)
 
 ### Location Commands:
-- `/function wool_wars:util/set_location` - Show location command help
-- `/function wool_wars:util/set_location_x {value:X}` - Set X coordinate
-- `/function wool_wars:util/set_location_y {value:Y}` - Set Y coordinate  
-- `/function wool_wars:util/set_location_z {value:Z}` - Set Z coordinate
+- `/function wool_wars:util/set_location {x:X, y:Y, z:Z}` - Set check location (e.g., {x:10, y:65, z:-20})
 - `/function wool_wars:util/show_location` - Show current check location
 
 ### Team Commands:
@@ -51,7 +48,7 @@ A competitive multiplayer Minecraft datapack where teams compete to control a sp
 ### Examples:
 ```
 /function wool_wars:util/set_timer {minutes:5}
-/function wool_wars:util/set_location_y {value:100}
+/function wool_wars:util/set_location {x:10, y:65, z:-20}
 /function wool_wars:teams/join_blue
 ```
 

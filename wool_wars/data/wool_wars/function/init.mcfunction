@@ -104,4 +104,4 @@ team add ww_black "Black Team"
 team modify ww_black color black
 
 tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Default check location: ","color":"yellow"},{"text":"0, 80, 0","color":"aqua"}]
-tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Use ","color":"yellow"},{"text":"/function wool_wars:util/set_location","color":"aqua"},{"text":" to change","color":"yellow"}] 
+tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Use ","color":"yellow"},{"text":"/function wool_wars:util/set_location {x:X, y:Y, z:Z}","color":"aqua"},{"text":" to change","color":"yellow"}] 
