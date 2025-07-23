@@ -2,24 +2,26 @@
 
 A competitive multiplayer Minecraft datapack where teams compete to control a specific block location by placing their colored wool.
 
+## Game Rules
+
+1. Teams place their colored wool at the designated location (default: 0, 80, 0)
+2. At the timer interval (default 10 minutes), the team whose wool is at the location scores 1 point
+3. Teams can destroy or replace opponent's wool at any time
+
 ## Features
 
-- **Real-time Wool Detection**: Instantly detects when wool is placed or destroyed at the target location
+- **Real-time Wool Detection**: Instantly detects and announces when wool is placed or destroyed at the target location
+- **16 Team System**: All wool colors are supported as different teams with team management. Join or get added to teams to receive automatic wool replenishment
+- **Score Tracking**: Persistent score tracking for each team, calculated automatically every timer interval
 - **Customizable Timer System**: Set any timer interval (default 10 minutes) with countdown warnings
-- **16 Team Support**: All wool colors are supported as different teams with team management
-- **Score Tracking**: Persistent score tracking for each team
-- **Customizable Location**: Change the wool check location with commands
-- **Team System**: Join teams and get automatic wool replenishment
-- **Visual & Audio Feedback**: Color-coded messages with different sounds (chime for placing, bass for destroying)
-- **Admin Commands**: Admins can manage other players' teams and view team rosters
+- **Customizable Location**: Change the wool check location
 
 ## Installation
 
 ### For Minecraft Realms:
-1. Download the `wool_wars` folder
-2. Compress it into a ZIP file
-3. Upload to your realm through the realm settings
-4. Activate the datapack in your world settings
+1. Download the `wool_wars` ZIP file
+2. Upload to your realm through the realm settings
+3. Activate the datapack in your world settings
 
 ### For Single Player/Servers:
 1. Navigate to your world's `datapacks` folder:
@@ -30,70 +32,39 @@ A competitive multiplayer Minecraft datapack where teams compete to control a sp
 
 ## Commands
 
-### Core Commands:
+### 1. Team Setup (Players):
+- `/function wool_wars:teams/join_team` - Show all available teams to join
+- `/function wool_wars:teams/join_[color]` - Join a specific team (e.g., `join_red`, `join_blue`)
+  - Available colors: white, orange, magenta, light_blue, yellow, lime, pink, gray, light_gray, cyan, purple, blue, brown, green, red, black
+- `/function wool_wars:teams/leave` - Leave your current team
+
+### 2. Game Setup (Admin):
+- `/function wool_wars:util/set_location {x:X, y:Y, z:Z}` - Set the control point location
+- `/function wool_wars:util/show_location` - Display current control point coordinates
+- `/function wool_wars:util/set_timer {minutes:M}` - Change round length (default: 10 minutes)
+
+### 3. Team Management (Admin):
+- `/function wool_wars:admin/set_player_team {player:"Name", team:"color"}` - Assign player to team
+- `/function wool_wars:admin/list_teams` - View all players and their team assignments
+
+### 4. During Gameplay:
 - `/function wool_wars:scoring/show_scores` - Display current team scores
 - `/function wool_wars:scoring/reset_scores` - Reset all scores and restart timer
 
-### Timer Commands:
-- `/function wool_wars:util/set_timer {minutes:X}` - Set timer interval (e.g., {minutes:5} for 5 minutes)
-
-### Location Commands:
-- `/function wool_wars:util/set_location {x:X, y:Y, z:Z}` - Set check location (e.g., {x:10, y:65, z:-20})
-- `/function wool_wars:util/show_location` - Show current check location
-
-### Team Commands:
-- `/function wool_wars:teams/join_team` - Show all team join commands
-- `/function wool_wars:teams/join_[color]` - Join a specific color team (e.g., join_red)
-- `/function wool_wars:teams/leave` - Leave your current team
-
-### Admin Commands:
-- `/function wool_wars:admin/set_player_team {player:"PlayerName", team:"color"}` - Set a player's team
-- `/function wool_wars:admin/list_teams` - Show all players and their teams
-
-### Examples:
+### Quick Start Example:
 ```
+# 1. Players join teams
+/function wool_wars:teams/join_red
+
+# 2. Admin sets game location
+/function wool_wars:util/set_location {x:100, y:65, z:-50}
+
+# 3. Optional: Shorter rounds for testing
 /function wool_wars:util/set_timer {minutes:5}
-/function wool_wars:util/set_location {x:10, y:65, z:-20}
-/function wool_wars:teams/join_blue
-/function wool_wars:admin/set_player_team {player:"Steve", team:"red"}
+
+# 4. Admin assigns players without commands
+/function wool_wars:admin/set_player_team {player:"Steve", team:"blue"}
 ```
-
-## Game Rules
-
-1. Teams place their colored wool at the designated location (default: 0, 80, 0)
-2. At the timer interval (default 10 minutes), the team whose wool is at the location scores 1 point
-3. Teams can destroy or replace opponent's wool at any time
-4. Players automatically receive wool when they run out (must be on a team)
-5. Timer warnings appear at 5 minutes, 2 minutes, 1 minute, 30 seconds, and final 10 seconds
-
-## Timer Announcements
-
-- **5 minutes**: "⏰ 5 minutes until scoring!"
-- **2 minutes**: "⏰ 2 minutes until scoring!"
-- **1 minute**: "⏰ 1 minute until scoring!"
-- **30 seconds**: "⏰ 30 seconds until scoring!"
-- **10-1 seconds**: Countdown with increasing pitch
-
-## Technical Details
-
-- **Pack Format**: 48 (Minecraft 1.21+)
-- **Namespace**: `wool_wars`
-- **Update Rate**: Runs every tick for instant detection
-- **Compatibility**: Realm-compatible, multiplayer-ready
-
-## Team Colors
-
-All 16 Minecraft wool colors are supported:
-- White, Orange, Magenta, Light Blue
-- Yellow, Lime, Pink, Gray
-- Light Gray, Cyan, Purple, Blue
-- Brown, Green, Red, Black
-
-## Troubleshooting
-
-- **Datapack not loading**: Run `/datapack list` to verify it's detected
-- **No messages appearing**: Ensure you have operator permissions
-- **Location not updating**: Use the show_location command to verify coordinates
 
 ## Version
 
