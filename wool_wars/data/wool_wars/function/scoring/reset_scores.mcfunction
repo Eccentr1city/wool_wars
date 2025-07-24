@@ -24,4 +24,4 @@ scoreboard players set #countdown ww_timer 0
 
 # Announce reset
 tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"All scores have been reset!","color":"yellow"}]
-execute at @a run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1 2 
+execute at @a run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.5 2 

@@ -13,4 +13,4 @@ $give @a[name="$(player)",team=ww_$(team)] $(team)_wool 64
 
 # Announce the change
 $tellraw @a ["",{"text":"[Wool Wars Admin] ","color":"dark_purple","bold":true},{"text":"$(player)","color":"yellow","bold":true},{"text":" has been moved to team ","color":"gray"},{"text":"$(team)","color":"gold","bold":true}]
-$execute at @a run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1 1 
+$execute at @a run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.4 1 

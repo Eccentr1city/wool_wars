@@ -2,7 +2,7 @@
 
 # If previous was wool (>0) and current is not wool (0), wool was destroyed
 execute if score #previous ww_previous_wool matches 1.. if score #current ww_current_wool matches 0 run tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Wool destroyed!","color":"red"}]
-execute if score #previous ww_previous_wool matches 1.. if score #current ww_current_wool matches 0 at @a run playsound minecraft:block.note_block.bass master @a ~ ~ ~ 1 0.5
+execute if score #previous ww_previous_wool matches 1.. if score #current ww_current_wool matches 0 at @a run playsound minecraft:block.note_block.bass master @a ~ ~ ~ 0.3 0.5
 
 # If current is wool (>0), announce placement
 execute if score #current ww_current_wool matches 1 run tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Team ","color":"yellow"},{"text":"White","color":"white","bold":true},{"text":" wool placed!","color":"yellow"}]
@@ -23,4 +23,4 @@ execute if score #current ww_current_wool matches 15 run tellraw @a ["",{"text":
 execute if score #current ww_current_wool matches 16 run tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Team ","color":"yellow"},{"text":"Black","color":"black","bold":true},{"text":" wool placed!","color":"yellow"}]
 
 # Play chime sound only for wool placement
-execute if score #current ww_current_wool matches 1.. at @a run playsound minecraft:block.note_block.chime master @a ~ ~ ~ 1 1 
+execute if score #current ww_current_wool matches 1.. at @a run playsound minecraft:block.note_block.chime master @a ~ ~ ~ 0.4 1 

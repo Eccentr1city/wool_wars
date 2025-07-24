@@ -1,7 +1,7 @@
 # Score the round
 
 # Play scoring sound
-execute at @a run playsound minecraft:entity.firework_rocket.blast master @a ~ ~ ~ 1 1
+execute at @a run playsound minecraft:entity.firework_rocket.blast master @a ~ ~ ~ 0.5 1
 
 # Check what wool is at the location and award points
 execute if score #current ww_current_wool matches 1 run function wool_wars:scoring/award_white
