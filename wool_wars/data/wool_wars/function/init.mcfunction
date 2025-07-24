@@ -6,6 +6,11 @@ scoreboard objectives add ww_timer dummy "Timer"
 scoreboard objectives add ww_max_timer dummy "Max Timer"
 scoreboard objectives add ww_seconds dummy "Seconds"
 scoreboard objectives add ww_minutes dummy "Minutes"
+scoreboard objectives add ww_temp dummy "Temp Calculations"
+
+# Create math constants for timer display
+scoreboard players set #20 ww_temp 20
+scoreboard players set #60 ww_temp 60
 
 # Create scoreboards for team scores
 scoreboard objectives add ww_white dummy "White Team"

@@ -68,4 +68,4 @@ A competitive multiplayer Minecraft datapack where teams compete to control a sp
 
 ## Version
 
-Version 1.0 - Compatible with Minecraft 1.21+ 
+Version 1.1 - Compatible with Minecraft 1.21+ 
