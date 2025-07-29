@@ -7,6 +7,7 @@ scoreboard objectives add ww_max_timer dummy "Max Timer"
 scoreboard objectives add ww_seconds dummy "Seconds"
 scoreboard objectives add ww_minutes dummy "Minutes"
 scoreboard objectives add ww_temp dummy "Temp Calculations"
+scoreboard objectives add ww_paused dummy "Timer Paused"
 
 # Create math constants for timer display
 scoreboard players set #20 ww_temp 20
@@ -42,6 +43,9 @@ scoreboard objectives add ww_check_z dummy "Check Z"
 # Create scoreboard for wool replenishment
 scoreboard objectives add ww_wool_check dummy "Wool Check Timer"
 
+# Create scoreboard for bedrock placement detection
+scoreboard objectives add ww_placed_bedrock minecraft.used:minecraft.bedrock "Placed Bedrock"
+
 # Set default check location
 scoreboard players set #location ww_check_x 0
 scoreboard players set #location ww_check_y 80
@@ -51,6 +55,7 @@ scoreboard players set #location ww_check_z 0
 scoreboard players set #max ww_max_timer 12000
 scoreboard players set #timer ww_timer 12000
 scoreboard players set #countdown ww_timer 0
+scoreboard players set #paused ww_paused 0
 
 # Initialize wool tracking
 scoreboard players set #current ww_current_wool 0
@@ -108,5 +113,7 @@ team modify ww_red color red
 team add ww_black "Black Team"
 team modify ww_black color black
 
-tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Default check location: ","color":"yellow"},{"text":"0, 80, 0","color":"aqua"}]
-tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Use ","color":"yellow"},{"text":"/function wool_wars:util/set_location {x:X, y:Y, z:Z}","color":"aqua"},{"text":" to change","color":"yellow"}] 
+# Give the player who ran the init a named bedrock block
+give @s minecraft:bedrock[item_name='Wool Wars Control Point',lore=['{"text":"Place to set the control point","color":"gray"}','{"text":"Wool will be checked above this block","color":"gray"}']] 1
+
+tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Run ","color":"yellow"},{"text":"/function wool_wars:init","color":"aqua"},{"text":" to receive a control point block. Jump and place it under you to set the wool target location.","color":"yellow"}]

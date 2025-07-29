@@ -1,5 +1,8 @@
 # Main tick function - runs every tick
 
+# Check for bedrock placement
+function wool_wars:detection/bedrock_placed
+
 # Check for wool changes
 function wool_wars:check_wool_dynamic
 

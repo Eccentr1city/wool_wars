@@ -1,9 +1,9 @@
 # Timer tick function - decrements timer and handles announcements
 
-# Decrement timer
-scoreboard players remove #timer ww_timer 1
+# Only process timer if not paused
+execute if score #paused ww_paused matches 0 run scoreboard players remove #timer ww_timer 1
 
-# Check for time announcements
+# Check for time announcements (only when not paused)
 # 5 minutes remaining (6000 ticks)
 execute if score #timer ww_timer matches 6000 run function wool_wars:timer/announce_5min
 
