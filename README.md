@@ -4,31 +4,24 @@ A datapack to support a competitive Minecraft game where teams compete to contro
 
 ## Game Rules
 
-1. Teams compete to place their colored wool at a designated location
-2. At the timer interval (default every 10 minutes), the team whose wool is at the location scores 1 point
+1. Teams compete to place their colored wool on top of a specific bedrock block
+2. At the timer interval (default every 10 minutes), the team whose wool is at that location scores 1 point
 
-## Features
+### Quick Start Example:
+```
+# 1. Initialize and place control point
+/function wool_wars:init
+# Jump and place the bedrock block underneath you to begin the game
 
-- **Easy Setup**: Place a special bedrock block to instantly set the control point location, or change it using commands
-- **Real-time Wool Detection**: Instantly detects and announces when wool is placed or destroyed at the target location
-- **16 Team System**: All wool colors are supported as different teams with team management. Join or get added to teams to receive automatic wool replenishment
-- **Score Tracking**: Persistent score tracking for each team, calculated automatically every timer interval
-- **Customizable Timer System**: Set any timer interval (default 10 minutes) with countdown warnings, pause/resume functionality
+# 2. Players join teams
+/function wool_wars:teams/join_red
 
-## Installation
+# Alternatively, admin assigns players (if players can't run their own commands)
+/function wool_wars:admin/set_player_team {player:"Steve", team:"blue"}
 
-### For Minecraft Realms:
-1. Download the `wool_wars` ZIP file and unzip it
-2. When you create a new world for your realm, open the datapacks setting and add the wool_wars folder to the world's datapacks folder
-3. Make sure to enable the datapack before continuing with world creation
-4. If startup messages don't appear after world creation, run `/reload`
-
-### For Single Player/Servers:
-1. Navigate to your world's `datapacks` folder:
-   - Single Player: `.minecraft/saves/[world_name]/datapacks/`
-   - Server: `[server_folder]/[world_name]/datapacks/`
-2. Copy the `wool_wars` folder into the datapacks directory
-3. Run `/reload` in-game or restart the world
+# 3. Optional configuration: Shorter rounds
+/function wool_wars:util/set_timer {minutes:5}
+```
 
 ## Commands
 
@@ -60,21 +53,20 @@ A datapack to support a competitive Minecraft game where teams compete to contro
 - `/function wool_wars:timer/unpause` - Resume the timer  
 - `/function wool_wars:timer/reset` - Reset the timer without affecting scores
 
-### Quick Start Example:
-```
-# 1. Initialize and place control point
-/function wool_wars:init
-# Place the bedrock block underneath you
+## Installation
 
-# 2. Players join teams
-/function wool_wars:teams/join_red
+### For Minecraft Realms:
+1. Download the `wool_wars` ZIP file and unzip it
+2. When you create a new world for your realm, open the datapacks setting and add the wool_wars folder to the world's datapacks folder
+3. Make sure to enable the datapack before continuing with world creation
+4. If startup messages don't appear after world creation, run `/reload`
 
-# Alternatively, admin assigns players (if players can't run their own commands)
-/function wool_wars:admin/set_player_team {player:"Steve", team:"blue"}
-
-# 3. Optional configuration: Shorter rounds
-/function wool_wars:util/set_timer {minutes:5}
-```
+### For Single Player/Servers:
+1. Navigate to your world's `datapacks` folder:
+   - Single Player: `.minecraft/saves/[world_name]/datapacks/`
+   - Server: `[server_folder]/[world_name]/datapacks/`
+2. Copy the `wool_wars` folder into the datapacks directory
+3. Run `/reload` in-game or restart the world
 
 ## Version
 
