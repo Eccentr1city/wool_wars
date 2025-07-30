@@ -27,6 +27,7 @@ function wool_wars:util/show_location
 # Reset the timer
 scoreboard players operation #timer ww_timer = #max ww_max_timer
 scoreboard players set #countdown ww_timer 0
+scoreboard players set #paused ww_paused 0
 tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Timer has been reset!","color":"yellow"}]
 
 # Play sound and particle effects

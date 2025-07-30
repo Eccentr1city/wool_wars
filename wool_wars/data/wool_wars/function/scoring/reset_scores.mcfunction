@@ -21,6 +21,7 @@ scoreboard players set #black ww_black 0
 # Reset timer
 scoreboard players operation #timer ww_timer = #max ww_max_timer
 scoreboard players set #countdown ww_timer 0
+scoreboard players set #paused ww_paused 0
 
 # Announce reset
 tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"All scores have been reset!","color":"yellow"}]
