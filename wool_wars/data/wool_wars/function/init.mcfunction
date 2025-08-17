@@ -46,6 +46,41 @@ scoreboard objectives add ww_wool_check dummy "Wool Check Timer"
 # Create scoreboard for bedrock placement detection
 scoreboard objectives add ww_placed_bedrock minecraft.used:minecraft.bedrock "Placed Bedrock"
 
+# Create scoreboards for multi-location mode
+scoreboard objectives add ww_multi_mode dummy "Multi Location Mode"
+scoreboard objectives add ww_loc_count dummy "Location Count"
+scoreboard objectives add ww_loc_setup_count dummy "Setup Count"
+scoreboard objectives add ww_current_loc_index dummy "Current Location Index"
+
+# Create scoreboards for multi-location coordinates (0-4)
+scoreboard objectives add ww_loc_x_0 dummy "Location 0 X"
+scoreboard objectives add ww_loc_y_0 dummy "Location 0 Y"
+scoreboard objectives add ww_loc_z_0 dummy "Location 0 Z"
+scoreboard objectives add ww_loc_x_1 dummy "Location 1 X"
+scoreboard objectives add ww_loc_y_1 dummy "Location 1 Y"
+scoreboard objectives add ww_loc_z_1 dummy "Location 1 Z"
+scoreboard objectives add ww_loc_x_2 dummy "Location 2 X"
+scoreboard objectives add ww_loc_y_2 dummy "Location 2 Y"
+scoreboard objectives add ww_loc_z_2 dummy "Location 2 Z"
+scoreboard objectives add ww_loc_x_3 dummy "Location 3 X"
+scoreboard objectives add ww_loc_y_3 dummy "Location 3 Y"
+scoreboard objectives add ww_loc_z_3 dummy "Location 3 Z"
+scoreboard objectives add ww_loc_x_4 dummy "Location 4 X"
+scoreboard objectives add ww_loc_y_4 dummy "Location 4 Y"
+scoreboard objectives add ww_loc_z_4 dummy "Location 4 Z"
+
+# Create scoreboards for multi-location wool tracking (0-4)
+scoreboard objectives add ww_current_wool_0 dummy "Current Wool 0"
+scoreboard objectives add ww_previous_wool_0 dummy "Previous Wool 0"
+scoreboard objectives add ww_current_wool_1 dummy "Current Wool 1"
+scoreboard objectives add ww_previous_wool_1 dummy "Previous Wool 1"
+scoreboard objectives add ww_current_wool_2 dummy "Current Wool 2"
+scoreboard objectives add ww_previous_wool_2 dummy "Previous Wool 2"
+scoreboard objectives add ww_current_wool_3 dummy "Current Wool 3"
+scoreboard objectives add ww_previous_wool_3 dummy "Previous Wool 3"
+scoreboard objectives add ww_current_wool_4 dummy "Current Wool 4"
+scoreboard objectives add ww_previous_wool_4 dummy "Previous Wool 4"
+
 # Set default check location
 scoreboard players set #location ww_check_x 0
 scoreboard players set #location ww_check_y 80
@@ -60,6 +95,24 @@ scoreboard players set #paused ww_paused 0
 # Initialize wool tracking
 scoreboard players set #current ww_current_wool 0
 scoreboard players set #previous ww_previous_wool 0
+
+# Initialize multi-location mode (disabled by default)
+scoreboard players set #multi ww_multi_mode 0
+scoreboard players set #multi ww_loc_count 0
+scoreboard players set #multi ww_loc_setup_count 0
+scoreboard players set #multi ww_current_loc_index 0
+
+# Initialize multi-location wool tracking
+scoreboard players set #multi ww_current_wool_0 0
+scoreboard players set #multi ww_previous_wool_0 0
+scoreboard players set #multi ww_current_wool_1 0
+scoreboard players set #multi ww_previous_wool_1 0
+scoreboard players set #multi ww_current_wool_2 0
+scoreboard players set #multi ww_previous_wool_2 0
+scoreboard players set #multi ww_current_wool_3 0
+scoreboard players set #multi ww_previous_wool_3 0
+scoreboard players set #multi ww_current_wool_4 0
+scoreboard players set #multi ww_previous_wool_4 0
 
 # Initialize all team scores to 0
 scoreboard players set #white ww_white 0

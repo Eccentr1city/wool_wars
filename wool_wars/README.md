@@ -4,10 +4,16 @@ A datapack to support a competitive Minecraft game where teams compete to contro
 
 ## Game Rules
 
+### Single-Location Mode (Default):
 1. Teams compete to place their colored wool on top of a specific bedrock block
 2. At the timer interval (default every 10 minutes), the team whose wool is at that location scores 1 point
 
-### Quick Start Example:
+### Multi-Location Mode:
+1. Teams compete to place their colored wool on top of multiple bedrock blocks (2-5 locations)
+2. Every 10/n minutes (where n = number of locations), one location is scored in rotation
+3. The timer shows which location will be scored next
+
+### Quick Start Example (Single-Location):
 ```
 # 1. Initialize and place control point
 /function wool_wars:init
@@ -21,6 +27,20 @@ A datapack to support a competitive Minecraft game where teams compete to contro
 
 # 3. Optional configuration: Shorter rounds
 /function wool_wars:util/set_timer {minutes:5}
+```
+
+### Quick Start Example (Multi-Location):
+```
+# 1. Set up multi-location mode with 3 locations
+/function wool_wars:multi/setup {count:3}
+
+# 2. Place the 3 bedrock blocks you received at different locations
+
+# 3. Players join teams (same as single-location mode)
+/function wool_wars:teams/join_red
+
+# 4. Optional: Adjust interval between location scoring
+/function wool_wars:util/set_timer {minutes:2}
 ```
 
 ## Commands
@@ -53,6 +73,14 @@ A datapack to support a competitive Minecraft game where teams compete to contro
 - `/function wool_wars:timer/unpause` - Resume the timer  
 - `/function wool_wars:timer/reset` - Reset the timer without affecting scores
 
+### 7. Multi-Location Mode (Admin):
+- `/function wool_wars:multi/setup {count:N}` - Enable multi-location mode with N locations (2-5)
+  - Gives you N bedrock blocks to place at different locations
+  - Timer automatically adjusts to 10/N minute intervals
+- `/function wool_wars:multi/show_locations` - Display all active locations and their coordinates
+- `/function wool_wars:multi/disable` - Return to single-location mode
+- `/function wool_wars:util/set_timer {minutes:M}` - In multi-location mode, sets interval between individual location scoring
+
 ## Installation
 
 ### For Minecraft Realms:
@@ -70,4 +98,8 @@ A datapack to support a competitive Minecraft game where teams compete to contro
 
 ## Version
 
-Version 1.2 - Compatible with Minecraft 1.21+ 
+Version 1.3 - Compatible with Minecraft 1.21+ 
+- Added multi-location scoring mode
+- Teams can now compete across 2-5 different locations
+- Rotating scoring system with adjustable intervals
+- Persistent glowing location markers 

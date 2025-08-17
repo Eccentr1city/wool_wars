@@ -22,5 +22,8 @@ execute if score #paused ww_paused matches 0 if score #timer ww_timer matches 20
 # Handle countdown
 execute if score #paused ww_paused matches 0 if score #countdown ww_timer matches 1.. run function wool_wars:timer/countdown
 
-# Check if timer reached zero
-execute if score #paused ww_paused matches 0 if score #timer ww_timer matches 0 run function wool_wars:timer/score_round 
+# Check if timer reached zero (single-location mode)
+execute if score #paused ww_paused matches 0 if score #timer ww_timer matches 0 if score #multi ww_multi_mode matches 0 run function wool_wars:timer/score_round
+
+# Check if timer reached zero (multi-location mode)
+execute if score #paused ww_paused matches 0 if score #timer ww_timer matches 0 if score #multi ww_multi_mode matches 1 run function wool_wars:multi/timer/score_current_location 

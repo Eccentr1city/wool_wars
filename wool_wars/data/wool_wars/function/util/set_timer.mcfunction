@@ -10,5 +10,6 @@ scoreboard players operation #max ww_max_timer *= #temp ww_max_timer
 scoreboard players operation #timer ww_timer = #max ww_max_timer
 
 # Announce the change
-$tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Timer interval set to ","color":"yellow"},{"text":"$(minutes)","color":"aqua","bold":true},{"text":" minutes","color":"yellow"}]
+execute if score #multi ww_multi_mode matches 0 run tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Timer interval set to ","color":"yellow"},{"text":"$(minutes)","color":"aqua","bold":true},{"text":" minutes","color":"yellow"}]
+execute if score #multi ww_multi_mode matches 1 run tellraw @a ["",{"text":"[Wool Wars] ","color":"gold","bold":true},{"text":"Timer interval set to ","color":"yellow"},{"text":"$(minutes)","color":"aqua","bold":true},{"text":" minutes between location scoring","color":"yellow"}]
 execute at @a run playsound minecraft:block.note_block.pling master @a ~ ~ ~ 0.4 1 
