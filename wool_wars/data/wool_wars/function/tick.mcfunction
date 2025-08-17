@@ -18,6 +18,12 @@ execute if score #multi ww_multi_mode matches 0 run function wool_wars:timer/dis
 # Display timer for multi-location mode
 execute if score #multi ww_multi_mode matches 1 run function wool_wars:multi/timer/display_timer_multi
 
+# Display particle effects at control points (single-location mode)
+execute if score #multi ww_multi_mode matches 0 run function wool_wars:particles/display_single
+
+# Display particle effects at all control points (multi-location mode)
+execute if score #multi ww_multi_mode matches 1 run function wool_wars:particles/display_multi
+
 # Check for wool replenishment every 20 ticks (1 second)
 scoreboard players add #wool_check ww_wool_check 1
 execute if score #wool_check ww_wool_check matches 20.. run function wool_wars:teams/replenish_wool
